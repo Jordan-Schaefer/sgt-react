@@ -1,58 +1,22 @@
 {
   "grades": [
     {
-      "id": 5,
-      "name": "Kyle Simpson",
-      "course": "JavaScript",
-      "grade": 100
-    },
-    {
-      "id": 12,
-      "name": "Brendan Eich",
-      "course": "JavaScript",
-      "grade": 100
-    },
-    {
-      "id": 32,
-      "name": "Douglas Crockford",
-      "course": "JavaScript",
-      "grade": 100
-    },
-    {
-      "name": "Bob",
-      "course": "Math",
-      "grade": "99",
-      "id": 36
-    },
-    {
-      "name": "Jon",
-      "course": "English",
-      "grade": "99",
-      "id": 37
-    },
-    {
-      "name": "Sara",
-      "course": "Science",
-      "grade": "102",
-      "id": 38
-    },
-    {
-      "name": "Zena",
-      "course": "Magic",
-      "grade": "100",
-      "id": 39
-    },
-    {
-      "name": "Joe",
-      "course": "Thrills",
-      "grade": "65",
+      "name": "Arnold Palmer",
+      "course": "Golf",
+      "grade": "95",
       "id": 40
     },
     {
-      "name": "Will",
-      "course": "Art",
-      "grade": "88",
-      "id": 41
+      "name": "Land Phill",
+      "course": "Drinkin Beer",
+      "grade": "110",
+      "id": 42
+    },
+    {
+      "name": "Chris Sharma",
+      "course": "Rock Climbing",
+      "grade": "93",
+      "id": 44
     }
   ]
 }
