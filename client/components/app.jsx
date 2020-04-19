@@ -43,7 +43,10 @@ export default class App extends React.Component {
       },
       body: JSON.stringify(newGrade)
     };
-    fetch('/api/grades', post);
+    fetch('/api/grades', post)
+      .then(res => res.json())
+      .then(data => console.log(data))
+      .catch(err => console.error(err));
   }
 
   render() {
