@@ -8,6 +8,7 @@ export default class App extends React.Component {
     super(props);
     this.state = { grades: [] };
     this.addGrade = this.addGrade.bind(this);
+    this.removeGrade = this.removeGrade.bind(this);
   }
 
   componentDidMount() {
@@ -37,7 +38,6 @@ export default class App extends React.Component {
   }
 
   addGrade(newGrade) {
-    console.log(newGrade);
     fetch('/api/grades', {
       method: 'POST',
       headers: {
@@ -56,6 +56,26 @@ export default class App extends React.Component {
       .catch(err => console.error(err));
   }
 
+  removeGrade(grade) {
+    const updatedGrades = this.state.grades.slice();
+    for (let i = 0; i < updatedGrades.length; i++) {
+      if (updatedGrades[i].id === grade) {
+        updatedGrades.splice(i, 1);
+      }
+    }
+    fetch(`/api/grades/${grade}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ id: grade })
+    })
+      .then(res => res.json())
+      .then(data => {
+        this.setState({ grades: updatedGrades });
+      });
+  }
+
   render() {
     return (
       <>
@@ -67,11 +87,12 @@ export default class App extends React.Component {
                 <th>Student Name</th>
                 <th>Course</th>
                 <th>Grade</th>
+                <th>Opperation</th>
               </tr>
 
             </thead>
             <tbody>
-              <GradeTable grade={this.state.grades} />
+              <GradeTable grade={this.state.grades} remove={this.removeGrade}/>
             </tbody>
           </table>
           <GradeForm onSubmit={this.addGrade} />
