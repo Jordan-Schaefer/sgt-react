@@ -7,7 +7,7 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { grades: [] };
-
+    this.addGrade = this.addGrade.bind(this);
   }
 
   componentDidMount() {
@@ -35,17 +35,24 @@ export default class App extends React.Component {
     return Math.round(average).toString();
   }
 
-  postNewGrade(newGrade) {
-    const post = {
+  addGrade(newGrade) {
+    console.log(newGrade);
+    // const grade =
+    fetch('/api/grades', {
       method: 'POST',
       headers: {
-        'Constent-Type': 'application/json'
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(newGrade)
-    };
-    fetch('/api/grades', post)
+    })
       .then(res => res.json())
-      .then(data => console.log(data))
+      .then(data => {
+        const previousData = this.state.grades.slice();
+        previousData.push(data);
+        this.setState(
+          { grades: previousData }
+        );
+      })
       .catch(err => console.error(err));
   }
 
@@ -53,20 +60,23 @@ export default class App extends React.Component {
     return (
       <>
         <Header text='Student Grade Table' average={this.averageGrade()}/>
-        <table className='table table-striped'>
-          <thead>
-            <tr className='thead-dark'>
-              <th>Student Name</th>
-              <th>Course</th>
-              <th>Grade</th>
-            </tr>
+        <div className='d-flex justify-content-around'>
+          <table className='table table-striped'>
+            <thead>
+              <tr className='thead-dark'>
+                <th>Student Name</th>
+                <th>Course</th>
+                <th>Grade</th>
+              </tr>
 
-          </thead>
-          <tbody>
-            <GradeTable grade={this.state.grades}/>
-          </tbody>
-        </table>
-        <GradeForm />
+            </thead>
+            <tbody>
+              <GradeTable grade={this.state.grades} />
+            </tbody>
+          </table>
+          <GradeForm onSubmit={this.addGrade} />
+        </div>
+
       </>
     );
   }

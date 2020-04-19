@@ -8,34 +8,78 @@ class GradeForm extends React.Component {
       course: '',
       grade: ''
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.handleName = this.handleName.bind(this);
+    this.handleCourse = this.handleCourse.bind(this);
+    this.handleGrade = this.handleGrade.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.onCancle = this.onCancle.bind(this);
   }
 
-  handleChange(event) {
-    console.log(event.target.name);
+  handleName(event) {
+    this.setState(
+      { name: event.target.value }
+    );
+  }
 
+  handleCourse(event) {
+    this.setState(
+      { course: event.target.value }
+    );
+  }
+
+  handleGrade(event) {
+    this.setState(
+      { grade: event.target.value }
+    );
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log(event.target);
+    const newGrade = {
+      name: this.state.name,
+      course: this.state.course,
+      grade: this.state.grade
+    };
+    this.props.onSubmit(newGrade);
+    this.setState({
+      name: '',
+      course: '',
+      grade: ''
+    });
+  }
 
+  onCancle() {
+    this.setState({
+      name: '',
+      course: '',
+      grade: ''
+    }
+    );
   }
 
   render() {
     return (
       <>
-        <form className='input-group mb-4 shadow-sm' onSubmit={this.handleSubmit}>
-          <i className="fas fa-user"></i>
-          <input required autoFocus type="text" placeholder='Name' value={name} onChange={this.handleChange}/>
-          <i className="far fa-list-alt"></i>
-          <input required autoFocus type="text" placeholder='Course' value={name} onChange={this.handleChange} />
-          <i className="fas fa-graduation-cap"></i>
-          <input required autoFocus type="text" placeholder='Grade' value={name} onChange={this.handleChange} />
-        </form>
-        <button type='submit' className='btn btn-success'>Submit</button>
-        <button className='btn btn-danger'>Cancle</button>
+        <div>
+          <form className='input-group mb-4 shadow-sm d-flex flex-column' onSubmit={this.handleSubmit}>
+            <div className='d-flex justify-content-between'>
+              <i className="fas fa-user"></i>
+              <input required autoFocus type="text" placeholder='Name' value={this.state.name} onChange={this.handleName}/>
+            </div>
+            <div className='d-flex justify-content-between'>
+              <i className="far fa-list-alt"></i>
+              <input required autoFocus type="text" placeholder='Course' value={this.state.course} onChange={this.handleCourse} />
+            </div>
+            <div className='d-flex justify-content-between'>
+              <i className="fas fa-graduation-cap"></i>
+              <input required autoFocus type="text" placeholder='Grade' value={this.state.grade} onChange={this.handleGrade} />
+            </div>
+            <div className='d-flex justify-content-end'>
+              <button type='submit' className='btn btn-success'>Submit</button>
+              <button className='btn btn-danger' onClick={this.onCancle}>Cancle</button>
+            </div>
+          </form>
+        </div>
       </>
     );
   }
