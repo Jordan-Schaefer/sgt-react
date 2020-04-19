@@ -1,11 +1,18 @@
 import React from 'react';
 
-function Grade(grade) {
-  console.log(grade);
+function Grade(props) {
+  console.log(props);
+  const one = props.grade;
+  console.log(one);
   return (
-    <tr>
-      {grade[0].grade}
-    </tr>
+    <>
+      <tr>
+        <td>{props.name}</td>
+        <td>{props.course}</td>
+        <td>{props.grade}</td>
+      </tr>
+    </>
+
   );
 }
 

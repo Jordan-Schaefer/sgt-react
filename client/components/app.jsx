@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './header';
-import Grade from './grade';
+import GradeTable from './grade-table';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -11,6 +11,7 @@ export default class App extends React.Component {
 
   componentDidMount() {
     this.getGrades();
+    console.log(this.state.grades);
   }
 
   getGrades() {
@@ -28,17 +29,17 @@ export default class App extends React.Component {
     return (
       <>
         <Header text='Student Grade Table'/>
-        <table className='grade-table'>
+        <table className='table thead-dark'>
           <thead>
-            <tr>
-              <th className='grade-table'>Student Name</th>
-              <th className='grade-table'>Course</th>
-              <th className='grade-table'>Grade</th>
+            <tr className='thead-dark'>
+              <th>Student Name</th>
+              <th>Course</th>
+              <th>Grade</th>
             </tr>
 
           </thead>
           <tbody>
-            <Grade grade={this.state.grades}/>
+            <GradeTable grade={this.state.grades}/>
           </tbody>
         </table>
       </>
