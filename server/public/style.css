@@ -1,0 +1,17 @@
+.root {
+  margin: auto;
+  max-width: 75%;
+}
+
+.title {
+  padding: 20px 0;
+  font-size: 40px;
+  font-weight: 800;
+
+}
+
+.table {
+  margin: auto;
+  border: 3px solid black;
+  padding: 15px;
+}
