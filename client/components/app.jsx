@@ -29,7 +29,7 @@ export default class App extends React.Component {
     return (
       <>
         <Header text='Student Grade Table'/>
-        <table className='table thead-dark'>
+        <table className='table table-striped'>
           <thead>
             <tr className='thead-dark'>
               <th>Student Name</th>

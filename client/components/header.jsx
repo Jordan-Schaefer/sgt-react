@@ -3,7 +3,10 @@ import React from 'react';
 function Header(props) {
   const title = props.text;
   return (
-    <header className='title'>{title}</header>
+    <div className='container'>
+      <header className='title'>{title}</header>
+    </div>
+
   );
 }
 
