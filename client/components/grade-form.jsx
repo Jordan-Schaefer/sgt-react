@@ -62,19 +62,19 @@ class GradeForm extends React.Component {
       <>
         <div>
           <form className='input-group mb-4 shadow-sm d-flex flex-column' onSubmit={this.handleSubmit}>
-            <div className='d-flex justify-content-between'>
-              <i className="fas fa-user"></i>
-              <input required autoFocus type="text" placeholder='Name' value={this.state.name} onChange={this.handleName}/>
+            <div className='d-flex justify-content-between form-group'>
+              <i className="fas fa-user d-flex align-items-center"></i>
+              <input required autoFocus className='form-control' type="text" placeholder='Name' value={this.state.name} onChange={this.handleName}/>
             </div>
-            <div className='d-flex justify-content-between'>
-              <i className="far fa-list-alt"></i>
-              <input required autoFocus type="text" placeholder='Course' value={this.state.course} onChange={this.handleCourse} />
+            <div className='d-flex justify-content-between form-group'>
+              <i className="far fa-list-alt d-flex align-items-center"></i>
+              <input required autoFocus className='form-control' type="text" placeholder='Course' value={this.state.course} onChange={this.handleCourse} />
             </div>
-            <div className='d-flex justify-content-between'>
-              <i className="fas fa-graduation-cap"></i>
-              <input required autoFocus type="text" placeholder='Grade' value={this.state.grade} onChange={this.handleGrade} />
+            <div className='d-flex justify-content-between form-group'>
+              <i className="fas fa-graduation-cap d-flex align-items-center"></i>
+              <input required autoFocus className='form-control' type="text" placeholder='Grade' value={this.state.grade} onChange={this.handleGrade} />
             </div>
-            <div className='d-flex justify-content-end'>
+            <div className='d-flex justify-content-end form-group'>
               <button type='submit' className='btn btn-success'>Submit</button>
               <button className='btn btn-danger' onClick={this.onCancle}>Cancle</button>
             </div>
