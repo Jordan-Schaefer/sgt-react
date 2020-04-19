@@ -1,11 +1,10 @@
 import React from 'react';
 
-class Header extends React.Component {
-  render() {
-    return (
-      <header className='title'>Student Grade Table</header>
-    );
-  }
+function Header(props) {
+  const title = props.text;
+  return (
+    <header className='title'>{title}</header>
+  );
 }
 
 export default Header;

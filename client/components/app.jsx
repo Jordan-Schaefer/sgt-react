@@ -13,10 +13,6 @@ export default class App extends React.Component {
     this.getGrades();
   }
 
-  // componentDidUpdate() {
-  //   console.log(this.state);
-  // }
-
   getGrades() {
     fetch('/api/grades')
       .then(res => res.json())
@@ -29,10 +25,9 @@ export default class App extends React.Component {
   }
 
   render() {
-    this.getGrades();
     return (
       <>
-        <Header />
+        <Header text='Student Grade Table'/>
         <table className='grade-table'>
           <thead>
             <tr>
@@ -43,7 +38,7 @@ export default class App extends React.Component {
 
           </thead>
           <tbody>
-            {/* <Grade grade={this.state.grades}/> */}
+            <Grade grade={this.state.grades}/>
           </tbody>
         </table>
       </>
