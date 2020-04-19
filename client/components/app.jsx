@@ -26,18 +26,18 @@ export default class App extends React.Component {
   }
 
   averageGrade() {
+
     const students = this.state.grades;
-    let average = null;
+    let total = 0;
     for (let i = 0; i < students.length; i++) {
-      average += students[i].grade;
+      total += parseInt(students[i].grade);
     }
-    average = average / students.length;
+    const average = (total / (students.length));
     return Math.round(average).toString();
   }
 
   addGrade(newGrade) {
     console.log(newGrade);
-    // const grade =
     fetch('/api/grades', {
       method: 'POST',
       headers: {
