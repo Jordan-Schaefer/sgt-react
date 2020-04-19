@@ -11,7 +11,6 @@ export default class App extends React.Component {
 
   componentDidMount() {
     this.getGrades();
-    console.log(this.state.grades);
   }
 
   getGrades() {
@@ -25,10 +24,20 @@ export default class App extends React.Component {
       .catch(err => console.error(err));
   }
 
+  averageGrade() {
+    const students = this.state.grades;
+    let average = null;
+    for (let i = 0; i < students.length; i++) {
+      average += students[i].grade;
+    }
+    average = average / students.length;
+    return Math.round(average).toString();
+  }
+
   render() {
     return (
       <>
-        <Header text='Student Grade Table'/>
+        <Header text='Student Grade Table' average={this.averageGrade()}/>
         <table className='table table-striped'>
           <thead>
             <tr className='thead-dark'>
