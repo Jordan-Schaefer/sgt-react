@@ -1,0 +1,31 @@
+{
+  "name": "sgt-react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jordan-Schaefer/sgt-react.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jordan-Schaefer/sgt-react/issues"
+  },
+  "homepage": "https://github.com/Jordan-Schaefer/sgt-react#readme",
+  "dependencies": {
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
+  },
+  "devDependencies": {
+    "@babel/core": "7.9.0",
+    "@babel/plugin-transform-react-jsx": "7.9.4",
+    "babel-loader": "8.1.0",
+    "webpack": "4.42.1",
+    "webpack-cli": "3.3.11"
+  }
+}
