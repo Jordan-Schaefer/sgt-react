@@ -17,6 +17,12 @@
       "course": "Rock Climbing",
       "grade": "93",
       "id": 44
+    },
+    {
+      "name": "Kelly Slater",
+      "course": "Surf",
+      "grade": "96",
+      "id": 45
     }
   ]
 }
