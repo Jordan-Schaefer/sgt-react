@@ -60,7 +60,7 @@ class GradeForm extends React.Component {
   render() {
     return (
       <>
-        <div>
+        <div className='form'>
           <form className='input-group mb-4 shadow-sm d-flex flex-column' onSubmit={this.handleSubmit}>
             <div className='d-flex justify-content-between form-group'>
               <i className="fas fa-user d-flex align-items-center"></i>
