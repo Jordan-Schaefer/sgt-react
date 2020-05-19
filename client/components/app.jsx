@@ -80,7 +80,7 @@ export default class App extends React.Component {
     return (
       <>
         <Header text='Student Grade Table' average={this.averageGrade()}/>
-        <div className='d-flex justify-content-around'>
+        <div className='d-flex justify-content-around media'>
           <table className='table table-striped'>
             <thead>
               <tr className='thead-dark'>
